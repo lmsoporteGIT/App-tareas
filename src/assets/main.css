@@ -1,0 +1,269 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+
+
+/* Estilos para la aplicación de tareas */
+.todo-container {
+  /* background: #41B883;  */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgb(1, 93, 23);
+  max-width: 450px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #34495E;
+  margin-bottom: 10px;
+}
+
+.task-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #34495E;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;  
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  color: black;
+  text-transform: uppercase;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+/* Media Query para Teléfonos (hasta 768px de ancho) */
+@media (max-width: 768px) {
+  .task-label {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .task-label small {
+    display: block;
+  }
+}
+
+/* Media Query  */
+@media (min-width: 769px) {
+  .task-label {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  color:darkslategrey;
+}
+
+.delete-btn {
+  background-image: linear-gradient(to right, #f857a6 0%, #ff5858  51%, #f857a6  100%);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.delete-btn:hover {
+  background: #ff5858;
+}
+
+
+
+.task-input-group {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin: 0 auto 12px auto; /* centrado horizontal */
+  max-width: 450px; /* límite máximo */
+  box-sizing: border-box;
+}
+
+.task-input {
+  flex: 0 0 70%;
+  height: 42px;
+  font-size: 14px;
+  padding: 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.task-date-input {
+  flex: 1;
+  max-width: 40px;
+  height: 42px;
+  font-size: 14px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.task-date-list {
+  flex: 1;
+  max-width: 20px;
+  height: 42px;
+  font-size: 14px;
+  border: 0px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+
+.task-add-btn {
+  height: 42px;
+  padding: 0 16px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.task-add-btn:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}
+
+.past {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.today {
+  color: hsl(236, 64%, 44%);
+  font-weight: bold;
+}
+
+.future {
+  color: lch(29.96% 37.35 150.02);
+  font-weight: bold;
+}
+
+.no-date {
+  color: inherit;
+  font-style: italic;
+}
+
+.btn-eliminar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-eliminar img {
+  width: 24px;
+  height: 24px;
+  filter: invert(18%) sepia(97%) saturate(7472%) hue-rotate(357deg) brightness(93%) contrast(117%);
+}
+
+
+.btn-modificar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-modificar img {
+  width: 24px;
+  height: 24px;
+  filter: invert(85%) sepia(100%) saturate(2000%) hue-rotate(25deg) brightness(100%) contrast(100%);
+}
+
+.btn-modificar img.activo {
+  filter: invert(65%) sepia(100%) saturate(2500%) hue-rotate(15deg) brightness(85%) contrast(110%);
+
+}
+
+.btn-modificar img:hover {
+  filter: invert(65%) sepia(100%) saturate(2500%) hue-rotate(15deg) brightness(85%) contrast(110%);
+}
+
+
+
+.task-modificar-btn {
+  height: 42px;
+  padding: 0 16px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.task-modificar-btn img {
+  width: 20px;
+  height: 20px;
+  filter: invert(81%) sepia(39%) saturate(1495%) hue-rotate(1deg) brightness(104%) contrast(97%);
+}
+
