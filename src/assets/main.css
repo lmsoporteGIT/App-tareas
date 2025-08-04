@@ -160,7 +160,7 @@ a,
 .task-date-list {
   flex: 1;
   max-width: 20px;
-  height: 42px;
+  height: 20px;
   font-size: 14px;
   border: 0px solid #ccc;
   box-sizing: border-box;
