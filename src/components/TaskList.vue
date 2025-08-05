@@ -67,9 +67,17 @@ function mostrarBarraTask(task) {
     taskStore.idModificar = task.id
     task.modificarActivo = true
   }
-
   console.log('Modificando:', task.id, task.task)
 }
+
+
+// Modificación de la fecha
+  function modificarFecha(task, event) {
+    const nuevaFecha = event.target.value;
+    console.log('Nueva fecha:', nuevaFecha);
+    task.date = nuevaFecha + 'T00:00:00';
+    taskStore.tacharTask(task)
+  }
 </script>
 
 <template>
@@ -129,10 +137,13 @@ function mostrarBarraTask(task) {
           {{ task.task }}
           <small v-if="task.date">
             [{{ formatDateFromString(task.date.split('T')[0]) }})
+
+            <!-------  modificación de la fecha              -->            
             <input
               class="task-date-list"
               type="date"
               :value="task.date.split('T')[0]"
+              @change="modificarFecha(task, $event)"
             />
           </small>
         </span>

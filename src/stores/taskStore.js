@@ -59,7 +59,7 @@ export const useTaskStore = defineStore('task', {
       }
     },
 
-    // Tachar tarea
+    // Tachar tarea o Modificar Fecha
     async tacharTask(task) {
       const auth = useAuthStore()
       const token = auth.token || localStorage.getItem('authToken')
@@ -106,11 +106,11 @@ export const useTaskStore = defineStore('task', {
       } catch (error) {
         console.error('Error al modificar la tarea:', error.response?.data || error.message)
       }
-
-
       return
     },
 
+
+   // Eliminar tarea
     async deleteTask(id) {
       const auth = useAuthStore()
       const token = auth.token || localStorage.getItem('authToken')
